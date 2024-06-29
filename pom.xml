@@ -60,7 +60,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                cse_360_group_project/cse_360_group_project.StartApplication
+                                cse_360_hw_4/cse_360_hw_4.StartApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

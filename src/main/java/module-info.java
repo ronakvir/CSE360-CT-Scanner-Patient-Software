@@ -3,11 +3,11 @@ module cse_360_group_project {
     requires javafx.fxml;
 
 
-    opens cse_360_group_project to javafx.fxml;
-    exports cse_360_group_project;
-    exports cse_360_group_project.Controllers;
-    opens cse_360_group_project.Controllers to javafx.fxml;
-    exports cse_360_group_project.Lib;
-    opens cse_360_group_project.Lib to javafx.fxml;
-    exports cse_360_group_project.Objects;
+    opens cse_360_hw_4 to javafx.fxml;
+    exports cse_360_hw_4;
+    exports cse_360_hw_4.Controllers;
+    opens cse_360_hw_4.Controllers to javafx.fxml;
+    exports cse_360_hw_4.Lib;
+    opens cse_360_hw_4.Lib to javafx.fxml;
+    exports cse_360_hw_4.Objects;
 }
