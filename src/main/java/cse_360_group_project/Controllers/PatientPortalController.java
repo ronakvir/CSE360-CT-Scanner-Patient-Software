@@ -24,7 +24,7 @@ public class PatientPortalController {
     public void setPatient(Patient patient, ActionEvent event) throws IOException {
         this.patient = patient;
 
-        Parent root = FXMLLoader.load(StartApplication.class.getResource("patient-portal.fxml"));
+        Parent root = FXMLLoader.load(StartApplication.class.getResource("patient-input-user.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root, Y_AXIS, X_AXIS);
         stage.setScene(scene);

@@ -34,7 +34,15 @@ public class StartController {
     }
 
     public void initCreateScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(StartApplication.class.getResource("create-account-view.fxml"));
+        Parent root = FXMLLoader.load(StartApplication.class.getResource("ct-scan-view.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root, Y_AXIS, X_AXIS);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void initPatientInputUserScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(StartApplication.class.getResource("patient-input-user.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, Y_AXIS, X_AXIS);
         stage.setScene(scene);

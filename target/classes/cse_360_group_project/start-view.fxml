@@ -14,6 +14,6 @@
 
     <Button text="Patient Intake" onAction="#initLoginScene"/>
     <Button text="CT Scan Tech View" onAction="#initCreateScene"/>
-    <Button text="Patient View" onAction="#initLoginScene"/>
+    <Button text="Patient View" onAction="#initPatientInputUserScene"/>
 
 </VBox>

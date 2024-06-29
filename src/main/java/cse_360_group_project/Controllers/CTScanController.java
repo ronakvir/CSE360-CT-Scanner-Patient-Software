@@ -3,22 +3,19 @@ package cse_360_group_project.Controllers;
 import cse_360_group_project.Lib.UserMockDB;
 import cse_360_group_project.Objects.CTScan;
 import cse_360_group_project.StartApplication;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static cse_360_group_project.Lib.Constants.*;
 
 import java.io.IOException;
 
-public class CreateAccountController {
+public class CTScanController {
 
     @FXML
     private TextField patientID;

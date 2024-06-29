@@ -38,7 +38,7 @@ public class UserMockDB {
 
     public static Patient readByUsername(String username) {
         try {
-            File file = new File(getDBPathFromUserName(username));
+            File file = new File(getPatientDBPathFromUserName(username));
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
             Patient patient = (Patient) ois.readObject();
@@ -50,9 +50,9 @@ public class UserMockDB {
         }
     }
 
-    public static Patient readByUserID(String userID) {
+    public static Patient readPatientByUserID(String userID) {
         try {
-            File file = new File(getDBPathFromUserID(userID));
+            File file = new File(getPatientDBPathFromUserID(userID));
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
             Patient patient = (Patient) ois.readObject();
@@ -63,6 +63,22 @@ public class UserMockDB {
             return null;
         }
     }
+
+    public static CTScan readCTScanByUserID(String userID) {
+        try {
+            File file = new File(getCTScanDBPathFromUserID(userID));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
+
+            CTScan ctScan = (CTScan) ois.readObject();
+            ois.close();
+            return ctScan;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 
 
     public static String generateUserID(String username) {
@@ -75,12 +91,17 @@ public class UserMockDB {
         return String.format("%05d", sum);
     }
 
-    private static String getDBPathFromUserName(String username) {
+    private static String getPatientDBPathFromUserName(String username) {
         return DB_PATH + generateUserID(username) + "_PatientInfo.txt";
     }
 
-    private static String getDBPathFromUserID(String userID) {
+    private static String getPatientDBPathFromUserID(String userID) {
         return DB_PATH + userID + "_PatientInfo.txt";
     }
+
+    private static String getCTScanDBPathFromUserID(String userID) {
+        return DB_PATH + userID + "CTResults.txt";
+    }
+
 
 }
