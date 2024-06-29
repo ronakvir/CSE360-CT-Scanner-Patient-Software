@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="cse_360_group_project.Controllers.CreateAccountController"
@@ -17,23 +14,28 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
+    <Text layoutX="20.0" layoutY="40.0" text="Patient ID:"/>
+    <TextField fx:id="patientID" layoutX="150.0" layoutY="30.0" prefWidth="200.0"/>
 
-    <Button onAction="#createAccountSubmit" layoutX="171.0" layoutY="180.0" mnemonicParsing="false"  prefHeight="37.0" prefWidth="79.0" text="Create" />
-    <TextField id="Username" fx:id="username" layoutX="115.0" layoutY="28.0" />
-    <TextField id="Password"  fx:id="password" layoutX="115.0" layoutY="78.0" />
-    <Button layoutX="47.0" layoutY="180.0" onAction="#initStartScene" mnemonicParsing="false"  prefHeight="37.0" prefWidth="79.0" text="Back" />
-    <Text layoutX="29.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="69.677734375" />
-    <Text layoutX="29.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" wrappingWidth="69.677734375" />
+    <Text layoutX="20.0" layoutY="80.0" text="The total Agatston CAC score"/>
+    <TextField fx:id="totalAgatston" layoutX="150.0" layoutY="70.0" prefWidth="200.0"/>
 
-    <ComboBox fx:id="user_type" layoutX="115.0" layoutY="128.0" promptText="select-user-type">
-        <items>
-            <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Patient" />
-                <String fx:value="Nurse" />
-                <String fx:value="Doctor" />
-            </FXCollections>
-        </items>
-    </ComboBox>
+    <Text layoutX="20.0" layoutY="120.0" text="Vessel level Agatston CAC score"/>
 
+    <Text layoutX="20.0" layoutY="160.0" text="LM:"/>
+    <TextField fx:id="LM" layoutX="150.0" layoutY="150.0" prefWidth="200.0"/>
 
+    <Text layoutX="20.0" layoutY="200.0" text="LAD:"/>
+    <TextField fx:id="LAD" layoutX="150.0" layoutY="190.0" prefWidth="200.0"/>
+
+    <Text layoutX="20.0" layoutY="240.0" text="LCX:"/>
+    <TextField fx:id="LCX" layoutX="150.0" layoutY="230.0" prefWidth="200.0"/>
+
+    <Text layoutX="20.0" layoutY="280.0" text="RCA:"/>
+    <TextField fx:id="RCA" layoutX="150.0" layoutY="270.0" prefWidth="200.0"/>
+
+    <Text layoutX="20.0" layoutY="320.0" text="PDA:"/>
+    <TextField fx:id="PDA" layoutX="150.0" layoutY="310.0" prefWidth="200.0"/>
+
+    <Button onAction="#generateCTScan" layoutX="360.0" layoutY="350.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="79.0" text="Save"/>
 </AnchorPane>

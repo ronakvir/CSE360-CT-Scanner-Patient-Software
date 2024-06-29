@@ -26,7 +26,7 @@ public class StartController {
 
 
     public void initLoginScene(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(StartApplication.class.getResource("login-view.fxml"));
+        Parent root = FXMLLoader.load(StartApplication.class.getResource("patient-intake-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root, Y_AXIS, X_AXIS);
         stage.setScene(scene);

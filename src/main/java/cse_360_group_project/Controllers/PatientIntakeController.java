@@ -2,14 +2,13 @@ package cse_360_group_project.Controllers;
 
 import cse_360_group_project.Lib.UserMockDB;
 import cse_360_group_project.StartApplication;
-import cse_360_group_project.Users.Patient;
+import cse_360_group_project.Objects.Patient;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -17,7 +16,7 @@ import static cse_360_group_project.Lib.Constants.*;
 
 import java.io.IOException;
 
-public class LoginController {
+public class PatientIntakeController {
 
     @FXML
     private Label welcomeText;
@@ -52,7 +51,7 @@ public class LoginController {
         p1.setTelephone(telephone.getText());
         p1.setHealthHistory(healthHistory.getText());
         p1.setInsuranceId(insuranceID.getText());
-        UserMockDB.write(p1);
+        UserMockDB.writePatient(p1);
         System.out.println(p1.getUsername());
         System.out.println(p1.getPassword());
         System.out.println(p1.getEmail());

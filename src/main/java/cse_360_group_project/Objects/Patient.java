@@ -1,4 +1,4 @@
-package cse_360_group_project.Users;
+package cse_360_group_project.Objects;
 
 import cse_360_group_project.Lib.UserMockDB;
 

@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import cse_360_group_project.Users.Patient;
+import cse_360_group_project.Objects.Patient;
 
 
 import java.io.IOException;

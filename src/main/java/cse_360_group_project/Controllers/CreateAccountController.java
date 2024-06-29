@@ -1,6 +1,7 @@
 package cse_360_group_project.Controllers;
 
 import cse_360_group_project.Lib.UserMockDB;
+import cse_360_group_project.Objects.CTScan;
 import cse_360_group_project.StartApplication;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -9,31 +10,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static cse_360_group_project.Lib.Constants.*;
-import cse_360_group_project.Users.Patient;
 
 import java.io.IOException;
 
 public class CreateAccountController {
 
     @FXML
-    private Label welcomeText;
+    private TextField patientID;
     @FXML
-    private ComboBox<String> user_type;
+    private TextField totalAgatston;
     @FXML
-    private TextField username;
+    private TextField LM;
     @FXML
-    private TextField password;
+    private TextField LAD;
+    @FXML
+    private TextField LCX;
+    @FXML
+    private TextField RCA;
+    @FXML
+    private TextField PDA;
 
-    @FXML
-    public void initialize() {
-        user_type.setItems(FXCollections.observableArrayList("Patient", "Nurse", "Doctor"));
-    }
 
 
     public void initStartScene(ActionEvent event) throws IOException {
@@ -44,15 +45,20 @@ public class CreateAccountController {
         stage.show();
     }
 
-    public void createAccountSubmit(ActionEvent event) throws IOException {
-
-        if ("Patient".equals(user_type.getValue())) {
-            Patient p1 = new Patient(username.getText(), password.getText());
-            UserMockDB.write(p1);
-            PatientPortalController portal = new PatientPortalController();
-            portal.setPatient(p1, event);
-        } else if ("Nurse".equals(user_type.getValue())) {
-            System.out.println("Nurse");
-        }
+    public void generateCTScan(ActionEvent event) throws IOException {
+        CTScan ctScan = new CTScan(patientID.getText());
+        ctScan.setTotalAgatston(totalAgatston.getText());
+        ctScan.setLM(LM.getText());
+        ctScan.setLAD(LAD.getText());
+        ctScan.setLCX(LCX.getText());
+        ctScan.setRCA(RCA.getText());
+        ctScan.setPDA(PDA.getText());
+        UserMockDB.writeCTScan(ctScan);
+        System.out.println(ctScan.getPatientUserID());
+        System.out.println(ctScan.getTotalAgatston());
+        System.out.println(ctScan.getLM());
+        System.out.println(ctScan.getLAD());
+        System.out.println(ctScan.getLCX());
+        System.out.println(ctScan.getRCA());
     }
 }
