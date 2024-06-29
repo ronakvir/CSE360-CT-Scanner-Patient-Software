@@ -45,15 +45,6 @@ public class CreateAccountController {
     }
 
     public void createAccountSubmit(ActionEvent event) throws IOException {
-        String prefix = UserMockDB.isAlreadyUser(username.getText());
-        if (prefix != null) {
-
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("User already has account");
-            a.show();
-
-            return;
-        }
 
         if ("Patient".equals(user_type.getValue())) {
             Patient p1 = new Patient(username.getText(), password.getText());

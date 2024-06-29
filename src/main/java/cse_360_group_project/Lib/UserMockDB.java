@@ -11,7 +11,7 @@ public class UserMockDB {
 
     public static boolean write(Patient patient) {
         try {
-            File file = new File(DB_PATH + "/" + patient.getDBPrefix() + patient.getUsername() + ".txt");
+            File file = new File(DB_PATH  + patient.getDBFileName());
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
             oos.writeObject(patient);
             oos.close();
@@ -21,9 +21,9 @@ public class UserMockDB {
         }
     }
 
-    public static Patient read(String prefix, String username) {
+    public static Patient read(String username) {
         try {
-            File file = new File(DB_PATH + "/" + prefix + username + ".txt");
+            File file = new File(getDBPath(username));
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
             Patient patient = (Patient) ois.readObject();
@@ -35,19 +35,18 @@ public class UserMockDB {
         }
     }
 
-    // there's definitely a better way to do this
 
-    public static String isAlreadyUser(String username) {
-        for (String prefix : DB_PREFIXES) {
-            try {
-                File file = new File(DB_PATH + "/" + prefix + username + ".txt");
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
-
-                ois.close();
-                return prefix;
-            } catch (Exception e) {
-            }
+    public static String generateUserID(String username) {
+        String lowercaseUsername = username.toLowerCase();
+        int sum = 0;
+        int maxLength = Math.min(lowercaseUsername.length(), 5);
+        for (int i = 0; i < maxLength; i++) {
+            sum += (int) lowercaseUsername.charAt(i);
         }
-        return null;
+        return String.format("%05d", sum);
+    }
+
+    private static String getDBPath(String username) {
+        return DB_PATH + generateUserID(username) + "_PatientInfo.txt";
     }
 }

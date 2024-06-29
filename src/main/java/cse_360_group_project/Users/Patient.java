@@ -1,5 +1,7 @@
 package cse_360_group_project.Users;
 
+import cse_360_group_project.Lib.UserMockDB;
+
 import java.io.Serializable;
 
 public class Patient implements Serializable {
@@ -9,13 +11,13 @@ public class Patient implements Serializable {
     private String email;
     private String telephone;
     private String health_history;
-    private Integer insurance_id;
+    private String insurance_id;
     private final String userId;
 
     public Patient(String username, String password) {
         this.username = username;
         this.password = password;
-        this.userId = generateUserId(username);
+        this.userId = UserMockDB.generateUserID(username);
     }
 
     // Getters and Setters for the fields
@@ -59,23 +61,14 @@ public class Patient implements Serializable {
         this.health_history = health_history;
     }
 
-    public Integer getInsuranceId() {
+    public String getInsuranceId() {
         return insurance_id;
     }
 
-    public void setInsuranceId(Integer insurance_id) {
+    public void setInsuranceId(String insurance_id) {
         this.insurance_id = insurance_id;
     }
 
-    private String generateUserId(String username) {
-        String lowercaseUsername = username.toLowerCase();
-        int sum = 0;
-        int maxLength = Math.min(lowercaseUsername.length(), 5);
-        for (int i = 0; i < maxLength; i++) {
-            sum += (int) lowercaseUsername.charAt(i);
-        }
-        return String.format("%05d", sum);
-    }
 
     public String getUserID() {
         return userId;

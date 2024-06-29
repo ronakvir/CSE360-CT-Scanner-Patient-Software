@@ -25,6 +25,16 @@ public class LoginController {
     private TextField username;
     @FXML
     private TextField password;
+    @FXML
+    private TextField email;
+    @FXML
+    private TextField telephone;
+    @FXML
+    private TextField healthHistory;
+    @FXML
+    private TextField insuranceID;
+
+
 
 
     public void initStartScene(ActionEvent event) throws IOException {
@@ -35,26 +45,22 @@ public class LoginController {
         stage.show();
     }
 
-    public void loginSubmit(ActionEvent event) throws IOException {
-        String prefix = UserMockDB.isAlreadyUser(username.getText());
-        if (prefix == null) {
 
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("User Not Found");
-            a.show();
-
-            return;
-        }
-        Patient patient = UserMockDB.read(prefix, username.getText());
-        if (!patient.getPassword().equals(password.getText())) {
-
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Incorrect Password");
-            a.show();
-
-            return;
-        }
-
+    public void createPatient(ActionEvent event) throws IOException {
+        Patient p1 = new Patient(username.getText(), password.getText());
+        p1.setEmail(email.getText());
+        p1.setTelephone(telephone.getText());
+        p1.setHealthHistory(healthHistory.getText());
+        p1.setInsuranceId(insuranceID.getText());
+        UserMockDB.write(p1);
+        System.out.println(p1.getUsername());
+        System.out.println(p1.getPassword());
+        System.out.println(p1.getEmail());
+        System.out.println(p1.getTelephone());
+        System.out.println(p1.getHealthHistory());
+        System.out.println(p1.getInsuranceId());
         PatientPortalController portal = new PatientPortalController();
-        portal.setPatient(patient, event); }
+        portal.setPatient(p1, event);
+    }
+
 }
