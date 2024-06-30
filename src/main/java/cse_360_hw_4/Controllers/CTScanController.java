@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static cse_360_hw_4.Lib.Constants.*;
@@ -44,6 +45,19 @@ public class CTScanController {
 
     public void generateCTScan(ActionEvent event) throws IOException {
         CTScan ctScan = new CTScan(patientID.getText());
+        TextField[] fields = {patientID, totalAgatston, LM, LAD, LCX, RCA, PDA};
+        String[] fieldNames = {"Patient ID", "Total Agatston", "LM", "LAD", "LCX", "RCA", "PDA"};
+
+        for (int i = 0; i < fields.length; i++) {
+            if (fields[i].getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Input Error");
+                alert.setHeaderText(null);
+                alert.setContentText(fieldNames[i] + " field must be filled out.");
+                alert.showAndWait();
+            }
+        }
+
         ctScan.setTotalAgatston(totalAgatston.getText());
         ctScan.setLM(LM.getText());
         ctScan.setLAD(LAD.getText());

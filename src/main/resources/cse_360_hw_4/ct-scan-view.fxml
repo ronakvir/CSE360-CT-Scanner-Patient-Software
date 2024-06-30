@@ -38,4 +38,6 @@
     <TextField fx:id="PDA" layoutX="150.0" layoutY="310.0" prefWidth="200.0"/>
 
     <Button onAction="#generateCTScan" layoutX="360.0" layoutY="350.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="79.0" text="Save"/>
+    <Button layoutX="47.0" layoutY="350.0" mnemonicParsing="false" onAction="#initStartScene" prefHeight="37.0" prefWidth="79.0" text="Back" />
+
 </AnchorPane>

@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -12,10 +8,10 @@
             fx:controller="cse_360_hw_4.Controllers.PatientInputIDController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Label text="Welcome patient">Hello Patient!</Label>
     <Text layoutX="20.0" layoutY="40.0" text="Patient ID:"/>
     <TextField fx:id="patientID" layoutX="150.0" layoutY="30.0" prefWidth="200.0"/>
 
     <Button onAction="#loadCTResults" layoutX="360.0" layoutY="350.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="79.0" text="Submit"/>
+    <Button layoutX="47.0" layoutY="350.0" mnemonicParsing="false" onAction="#initStartScene" prefHeight="37.0" prefWidth="79.0" text="Back" />
 
 </AnchorPane>

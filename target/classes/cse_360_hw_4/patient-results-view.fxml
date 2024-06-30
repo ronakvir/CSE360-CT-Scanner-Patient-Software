@@ -33,5 +33,6 @@
 
     <Text layoutX="20.0" layoutY="320.0" text="PDA:"/>
     <TextField fx:id="PDA" editable="false" layoutX="150.0" layoutY="310.0" prefWidth="200.0"/>
+    <Button layoutX="47.0" layoutY="380.0" mnemonicParsing="false" onAction="#initStartScene" prefHeight="37.0" prefWidth="79.0" text="Back" />
 
 </AnchorPane>

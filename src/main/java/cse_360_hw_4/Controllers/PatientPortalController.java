@@ -31,4 +31,12 @@ public class PatientPortalController {
         stage.show();
 
     }
+
+    public void initStartScene(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(StartApplication.class.getResource("start-view.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root, Y_AXIS, X_AXIS);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
