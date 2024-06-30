@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -17,6 +18,8 @@ import static cse_360_hw_4.Lib.Constants.X_AXIS;
 import static cse_360_hw_4.Lib.Constants.Y_AXIS;
 
 public class PatientResultsController {
+    @FXML
+    private Label patientHello;
     @FXML
     private TextField totalAgatston;
     @FXML
@@ -30,7 +33,8 @@ public class PatientResultsController {
     @FXML
     private TextField PDA;
 
-    public void initView(CTScan ctScan) {
+    public void initView(CTScan ctScan, String firstName, String lastName) {
+        patientHello.setText("Hello " + firstName + " " + lastName);
         totalAgatston.setText(ctScan.getTotalAgatston());
         LM.setText(ctScan.getLM());
         LAD.setText(ctScan.getLAD());

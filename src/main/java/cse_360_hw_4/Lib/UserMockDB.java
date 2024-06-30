@@ -36,9 +36,9 @@ public class UserMockDB {
         }
     }
 
-    public static Patient readByUsername(String username) {
+    public static Patient readByUsername(String firstName) {
         try {
-            File file = new File(getPatientDBPathFromUserName(username));
+            File file = new File(getPatientDBPathFromFirstName(firstName));
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
 
             Patient patient = (Patient) ois.readObject();
@@ -91,8 +91,8 @@ public class UserMockDB {
         return String.format("%05d", sum);
     }
 
-    private static String getPatientDBPathFromUserName(String username) {
-        return DB_PATH + generateUserID(username) + "_PatientInfo.txt";
+    private static String getPatientDBPathFromFirstName(String firstName) {
+        return DB_PATH + generateUserID(firstName) + "_PatientInfo.txt";
     }
 
     private static String getPatientDBPathFromUserID(String userID) {

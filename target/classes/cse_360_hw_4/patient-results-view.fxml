@@ -13,7 +13,7 @@
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
-
+    <Label fx:id="patientHello" alignment="TOP_CENTER"/>
     <Text layoutX="20.0" layoutY="80.0" text="The total Agatston CAC score"/>
     <TextField fx:id="totalAgatston" editable="false" layoutX="150.0" layoutY="70.0" prefWidth="200.0"/>
 

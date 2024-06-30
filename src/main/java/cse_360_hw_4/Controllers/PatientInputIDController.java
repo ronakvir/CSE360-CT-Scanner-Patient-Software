@@ -47,7 +47,7 @@ public class PatientInputIDController {
 
             // Get the controller instance from the FXMLLoader
             PatientResultsController patientResultsController = loader.getController();
-            patientResultsController.initView(ctScan);
+            patientResultsController.initView(ctScan, user.getFirstName(), user.getLastName());
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root, Y_AXIS, X_AXIS);

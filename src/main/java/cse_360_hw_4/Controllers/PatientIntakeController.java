@@ -20,11 +20,9 @@ import java.io.IOException;
 public class PatientIntakeController {
 
     @FXML
-    private Label welcomeText;
+    private TextField firstName;
     @FXML
-    private TextField username;
-    @FXML
-    private TextField password;
+    private TextField lastName;
     @FXML
     private TextField email;
     @FXML
@@ -47,14 +45,12 @@ public class PatientIntakeController {
 
 
     public void createPatient(ActionEvent event) throws IOException {
-        Patient p1 = new Patient(username.getText(), password.getText());
+        Patient p1 = new Patient(firstName.getText(), lastName.getText());
         p1.setEmail(email.getText());
         p1.setTelephone(telephone.getText());
         p1.setHealthHistory(healthHistory.getText());
         p1.setInsuranceId(insuranceID.getText());
         UserMockDB.writePatient(p1);
-        System.out.println(p1.getUsername());
-        System.out.println(p1.getPassword());
         System.out.println(p1.getEmail());
         System.out.println(p1.getTelephone());
         System.out.println(p1.getHealthHistory());
